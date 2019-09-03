@@ -83,7 +83,7 @@ module.exports = {
     plugins: [
         new HtmlWebPackPlugin({
             template: "./index.html",
-            filename: "index.html",
+            filename: "index.jsx.html",
             minify: {
                 //移除空白
                 collapseWhitespace: true,
@@ -99,5 +99,12 @@ module.exports = {
         compress: true,
         port: '8088',
         host: 'localhost',
+        historyApiFallback: true,
+        disableHostCheck: true,
     },
+    output: {
+        publicPath: '/',
+        path: path.resolve(__dirname, './dist'),
+    },
+    devtool: 'source-map',
 };
